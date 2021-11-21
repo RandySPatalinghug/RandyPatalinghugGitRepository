@@ -15,9 +15,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-//import com.jfk.mavenproject.googleSearch;
-
-
 public class googleSearchDefinitions {
 	String driverPath = "R:/Installers/chromedriver.exe";
 	 
@@ -25,7 +22,6 @@ public class googleSearchDefinitions {
  
     googleSearch objSearch;
  
-//    HomePage objHomePage;
  
     @SuppressWarnings("deprecation")
 	@Before
@@ -70,7 +66,7 @@ public class googleSearchDefinitions {
     @And("verify Health Information section is available")
     public void verifyHealthInformation() {
  
-        // Verify Health Information stories section
+        // Verify Health Information section
     	WebElement healthInfo = driver.findElement(By.xpath("//div[@class='TzHB6b cLjAic'][3]"));
         Assert.assertTrue(healthInfo.isDisplayed());
     }
@@ -79,14 +75,11 @@ public class googleSearchDefinitions {
     public void clickMOHlink() throws InterruptedException {
  
         //click MOH homepage link
-    	objSearch.clickSearchBtn();
+    	objSearch.clickMOHLink();
     }
     
     @Then("verify route to MOH page")
     public void MOHPage() {
- 
-        // Create Login Page object
-    	objSearch = new googleSearch(driver);
  
         // Verify page title
         String pageTitle = driver.getTitle();

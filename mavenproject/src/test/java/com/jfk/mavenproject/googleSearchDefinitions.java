@@ -45,7 +45,7 @@ public class googleSearchDefinitions {
 
     }
  
-    @And("search {string}")
+    @And("search \"(.*?)\"")
     public void searchString(String strSearch) throws InterruptedException {
  
         // input search string

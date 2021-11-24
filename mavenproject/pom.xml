@@ -10,7 +10,7 @@
 
   <name>jfk test</name>
 
-<properties>
+ <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.surefire-plugin.version>2.22.2</maven.surefire-plugin.version>
     <maven.compiler.source>17</maven.compiler.source>
@@ -19,48 +19,62 @@
     <junit.jupiter.version>5.8.1</junit.jupiter.version>
     <selenium.version>4.0.0</selenium.version>
     <webDriverManager.version>5.0.3</webDriverManager.version>
+    <slf4j.version>1.7.32</slf4j.version>
   </properties>
 
-  <dependencies>
+<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-simple</artifactId>
+
+		</dependency>
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
-      <scope>test</scope>
+      
     </dependency>
     <dependency>
       <groupId>io.cucumber</groupId>
-      <artifactId>cucumber-junit-platform-engine</artifactId>
-      <scope>test</scope>
+      <artifactId>cucumber-junit</artifactId>
+      
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <scope>test</scope>
+      
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-engine</artifactId>
-      <scope>test</scope>
+      
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-java</artifactId>
-      <scope>test</scope>
+      
     </dependency>
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
       <artifactId>selenium-chrome-driver</artifactId>
-      <scope>test</scope>
+      
     </dependency>
     <dependency>
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
-      <scope>test</scope>
+      
     </dependency>
   </dependencies>
 
   <dependencyManagement>
     <dependencies>
+		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-simple</artifactId>
+		    <version>${slf4j.version}</version>
+		</dependency>
+
       <dependency>
         <groupId>io.cucumber</groupId>
         <artifactId>cucumber-java</artifactId>
@@ -68,7 +82,7 @@
       </dependency>
       <dependency>
         <groupId>io.cucumber</groupId>
-        <artifactId>cucumber-junit-platform-engine</artifactId>
+        <artifactId>cucumber-junit</artifactId>
         <version>${cucumber.version}</version>
       </dependency>
       <dependency>
@@ -116,6 +130,5 @@
       </plugin>
     </plugins>
   </build>
-
 
 </project>

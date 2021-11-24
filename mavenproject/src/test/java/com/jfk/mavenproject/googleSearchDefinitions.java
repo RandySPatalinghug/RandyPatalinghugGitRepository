@@ -16,13 +16,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class googleSearchDefinitions {
-	String driverPath = "R:/Installers/chromedriver.exe";
+	String driverPath = "./drivers/chromedriver.exe";
 	 
-    WebDriver driver;
+	WebDriver driver; 
  
     googleSearch objSearch;
- 
- 
+	  
     @SuppressWarnings("deprecation")
 	@Before
     public void setup() {
@@ -32,25 +31,30 @@ public class googleSearchDefinitions {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("www.google.com");
+        driver.get("http://www.google.com");
     }
  
 
     @Given("user open Google webpage")
-    public void googlePage() {
- 
+    public void googlePage() throws InterruptedException {
+    	// Create Login Page object
+    	objSearch = new googleSearch(driver);
+    	
         // Verify page title
         String pageTitle = driver.getTitle();
         Assert.assertEquals("Google", pageTitle);
+        Thread.sleep(1000);
 
     }
  
-    @And("search \"(.*?)\"")
+    @And("search {string}")
     public void searchString(String strSearch) throws InterruptedException {
- 
         // input search string
     	objSearch.setSearchString(strSearch);
- 
+
+    	//make the correct phrase is selected
+    	driver.findElement(By.xpath("//span[contains(., 'covid 19 in malaysia')]")).click();
+    	
         // click Google Search button
     	objSearch.clickSearchBtn();
     }

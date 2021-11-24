@@ -6,7 +6,7 @@ Feature: Sample test scenario
   @scenario
   Scenario: Search covid 19 in Malaysia
     Given user open Google webpage
-    And search "covid 19 in Malaysia"
+    And search 'covid 19 in Malaysia'
     Then verify Top Stories section is available
    #Cannot find 'common questions section' so I use 'Health Information' instead
     And verify Health Information section is available

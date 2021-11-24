@@ -12,7 +12,7 @@ public class googleSearch {
     @FindBy(name = "q")
     WebElement searchInputField;
  
-    @FindBy(xpath = "//div[@class='FPdoLc lJ9FBc']//input[1]")
+    @FindBy(xpath = "//div[@role='heading'][contains(., 'Top stories')]")
     WebElement btnSearch;
     
     @FindBy(xpath = "//a[contains(., 'COVID-19 MALAYSIA: Home')]")
